@@ -1,8 +1,9 @@
 package com.example.astidhiyaa.myapplication;
 
 
+import java.io.Serializable;
 
-public class Post {
+public class Post implements Serializable{
     private String judul;
     private String deskripsi;
     private String id;

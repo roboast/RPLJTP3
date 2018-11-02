@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,10 +22,10 @@ import com.google.firebase.database.FirebaseDatabase;
 public class activity_post extends AppCompatActivity {
 
     private DatabaseReference db;
-
     private EditText etJudul;
     private EditText etDeskripsi;
     private Button btnPost, btnUpdate;
+    private AdapterArtikelRecyclerView adapter;
 
 
     @Override
@@ -38,14 +39,30 @@ public class activity_post extends AppCompatActivity {
         etDeskripsi = (EditText) findViewById(R.id.textDesc);
         btnPost = (Button) findViewById(R.id.btnSubmit);
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
-        
+        final Post post = (Post) getIntent().getSerializableExtra("data");
 
-        btnPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                submitArtikel();
-            }
-        });
+        if (post != null){
+            etJudul.setText(post.getJudul());
+            etDeskripsi.setText(post.getDeskripsi());
+
+            btnPost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    post.setJudul(etJudul.getText().toString());
+                    post.setDeskripsi(etDeskripsi.getText().toString());
+                    updateArtikel(post);
+                }
+            });
+        }
+        else{
+            btnPost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    submitArtikel();
+                }
+            });
+        }
+
 
 
 
@@ -64,6 +81,14 @@ public class activity_post extends AppCompatActivity {
         });
     }
 
+    public void updateArtikel(Post post){
+        db.child("id").child(post.getId()).setValue(post).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Snackbar.make(findViewById(R.id.btnSubmit), "Data berhasil diupdate", Snackbar.LENGTH_LONG).show();
+            }
+        });
+    }
 
 
 }

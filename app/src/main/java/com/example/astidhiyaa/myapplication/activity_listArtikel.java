@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class activity_listArtikel extends AppCompatActivity implements AdapterArtikelRecyclerView.DelDat {
+public class activity_listArtikel extends AppCompatActivity  {
     private DatabaseReference database;
     private RecyclerView rvView;
     private RecyclerView.Adapter adapter;
@@ -48,6 +48,7 @@ public class activity_listArtikel extends AppCompatActivity implements AdapterAr
         layoutManager = new LinearLayoutManager(this);
         rvView.setLayoutManager(layoutManager);
         database = FirebaseDatabase.getInstance().getReference();
+
 
         tampilData();
 
@@ -70,9 +71,10 @@ public class activity_listArtikel extends AppCompatActivity implements AdapterAr
                     dftrArtikel.add(post);
                 }
 
-
                 adapter = new AdapterArtikelRecyclerView(dftrArtikel, activity_listArtikel.this);
                 rvView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -84,12 +86,7 @@ public class activity_listArtikel extends AppCompatActivity implements AdapterAr
 
 
 
-    public static Intent getActIntent(Activity activity){
-        return new Intent(activity, activity_listArtikel.class);
-    }
 
-
-    @Override
     public void hapusData(Post post, final int position) {
         database.child("artikel").child("id").child(post.getId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
