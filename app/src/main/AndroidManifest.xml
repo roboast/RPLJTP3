@@ -18,10 +18,10 @@
         </activity>
         <activity android:name=".activity_post" />
         <activity android:name=".activity_update" />
-        <activity android:name=".activity_listArtikel">
-
-
-        </activity>
+        <activity android:name=".activity_listArtikel" />
+        <activity android:name=".Home" />
+        <activity android:name=".activity_wahana" />
+        <activity android:name=".activity_listwahana"></activity>
     </application>
 
 </manifest>
