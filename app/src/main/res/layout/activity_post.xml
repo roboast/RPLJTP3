@@ -19,12 +19,14 @@
         <EditText
             android:id="@+id/textDesc"
             android:layout_width="match_parent"
-            android:layout_height="380dp" />
+            android:layout_height="408dp" />
 
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Post" />
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

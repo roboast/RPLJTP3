@@ -6,11 +6,14 @@ import java.io.Serializable;
 public class Post implements Serializable{
     private String judul;
     private String deskripsi;
+    private String tanggal;
     private String id;
 
-    public Post(String judul, String deskripsi){
+
+    public Post(String judul, String deskripsi, String tanggal){
         this.judul = judul;
         this.deskripsi = deskripsi;
+        this.tanggal = tanggal;
     }
     public Post(){
 
@@ -43,5 +46,13 @@ public class Post implements Serializable{
 
     public String getDeskripsi() {
         return deskripsi;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public String getTanggal() {
+        return tanggal;
     }
 }

@@ -19,6 +19,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 public class activity_post extends AppCompatActivity {
 
     private DatabaseReference db;
@@ -70,7 +73,8 @@ public class activity_post extends AppCompatActivity {
 
     public void submitArtikel() {
         String artikel = db.push().getKey();
-        Post post = new Post(etJudul.getText().toString(), etDeskripsi.getText().toString());
+        String date_now = DateFormat.getDateTimeInstance().format(new Date());
+        Post post = new Post(etJudul.getText().toString(), etDeskripsi.getText().toString(),date_now);
         db.child("id").push().setValue(post).addOnSuccessListener(this, new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

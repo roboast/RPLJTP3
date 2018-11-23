@@ -1,31 +1,20 @@
 package com.example.astidhiyaa.myapplication;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.astidhiyaa.myapplication.Post;
-
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.example.astidhiyaa.myapplication.AdapterArtikelRecyclerView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class activity_listArtikel extends AppCompatActivity  {
     private DatabaseReference database;
@@ -42,7 +31,7 @@ public class activity_listArtikel extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_artikel);
+        setContentView(R.layout.activity_listartikel);
 
         rvView = (RecyclerView) findViewById(R.id.rv_main);
         rvView.setHasFixedSize(true);

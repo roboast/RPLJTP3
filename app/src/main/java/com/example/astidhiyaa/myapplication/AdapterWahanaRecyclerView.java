@@ -1,7 +1,6 @@
 package com.example.astidhiyaa.myapplication;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,15 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
+import com.squareup.picasso.Picasso;
 
-import com.example.astidhiyaa.myapplication.Post;
-import com.google.firebase.database.DatabaseReference;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
 class AdapterWahanaRecyclerView extends RecyclerView.Adapter<AdapterWahanaRecyclerView.ViewHolder> {
@@ -42,14 +38,16 @@ class AdapterWahanaRecyclerView extends RecyclerView.Adapter<AdapterWahanaRecycl
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvTitle, tvDesc;
+        TextView tvTitle, tvDesc, tvTanggal;
+        ImageView ivFoto;
 
 
         ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tvNamaWahana);
             tvDesc = (TextView) v.findViewById(R.id.tvDeskripsiWahana);
-
+            tvTanggal = (TextView) v.findViewById(R.id.tvTanggal);
+            ivFoto = (ImageView) v.findViewById(R.id.img_view);
         }
     }
 
@@ -67,6 +65,10 @@ class AdapterWahanaRecyclerView extends RecyclerView.Adapter<AdapterWahanaRecycl
 
         final String name = dftrWahana.get(position).getNama();
         final String desk = dftrWahana.get(position).getDeskripsi();
+        final String tgl = dftrWahana.get(position).getTanggal();
+        final String foto = dftrWahana.get(position).getFoto();
+
+
 
         holder.tvTitle.setOnLongClickListener(new View.OnLongClickListener() {
 
@@ -106,6 +108,9 @@ class AdapterWahanaRecyclerView extends RecyclerView.Adapter<AdapterWahanaRecycl
         });
         holder.tvTitle.setText(name);
         holder.tvDesc.setText(desk);
+        holder.tvTanggal.setText(tgl);
+        Picasso.with(context).load(foto).into(holder.ivFoto);
+
     }
 
 

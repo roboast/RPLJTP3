@@ -19,7 +19,25 @@
         <EditText
             android:id="@+id/textDesc"
             android:layout_width="match_parent"
-            android:layout_height="380dp" />
+            android:layout_height="137dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            app:srcCompat="@android:drawable/star_on" />
+
+        <Button
+            android:id="@+id/btn_choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Image" />
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload" />
 
         <Button
             android:id="@+id/btnSubmit"

@@ -1,17 +1,21 @@
 package com.example.astidhiyaa.myapplication;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -21,6 +25,8 @@ public class activity_listwahana extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Wahana> dftrWahana;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
 
     @Override
@@ -33,6 +39,8 @@ public class activity_listwahana extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         rvView.setLayoutManager(layoutManager);
         database = FirebaseDatabase.getInstance().getReference();
+        storage = FirebaseStorage.getInstance();
+
 
 
         tampilData();
@@ -70,12 +78,25 @@ public class activity_listwahana extends AppCompatActivity {
 
 
 
-    public void hapusData(Wahana wahana, final int position) {
-        database.child("wahana").child("id").child(wahana.getId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+    public void hapusData(final Wahana wahana, final int position) {
+        storageReference = storage.getReferenceFromUrl(wahana.getFoto());
+        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(activity_listwahana.this,"Berhasil terhapus",Toast.LENGTH_SHORT);
+                Toast.makeText(activity_listwahana.this,"Gambar Berhasil terhapus",Toast.LENGTH_SHORT);
+                database.child("wahana").child("id").child(wahana.getId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(activity_listwahana.this,"Berhasil terhapus",Toast.LENGTH_SHORT);
+                    }
+                });
             }
-        });
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(activity_listwahana.this,"Gagal terhapus",Toast.LENGTH_SHORT);
+                    }
+                });
     }
 }

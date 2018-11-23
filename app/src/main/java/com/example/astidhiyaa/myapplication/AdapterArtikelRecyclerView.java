@@ -1,7 +1,6 @@
 package com.example.astidhiyaa.myapplication;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -11,14 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-
-import com.example.astidhiyaa.myapplication.Post;
-import com.google.firebase.database.DatabaseReference;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
  class AdapterArtikelRecyclerView extends RecyclerView.Adapter<AdapterArtikelRecyclerView.ViewHolder> {
@@ -42,13 +35,14 @@ import java.util.ArrayList;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvTitle, tvDesc;
+        TextView tvTitle, tvDesc, tvTanggal;
 
 
         ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tvJudul);
             tvDesc = (TextView) v.findViewById(R.id.tvDeskripsi);
+            tvTanggal = (TextView) v.findViewById(R.id.tvTanggalArtikel);
 
         }
     }
@@ -56,7 +50,7 @@ import java.util.ArrayList;
     @Override
     public AdapterArtikelRecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_artikel, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_artikel, parent, false);
 
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -67,6 +61,7 @@ import java.util.ArrayList;
 
         final String name = dftrArtikel.get(position).getJudul();
         final String desk = dftrArtikel.get(position).getDeskripsi();
+        final String tgl = dftrArtikel.get(position).getTanggal();
 
         holder.tvTitle.setOnLongClickListener(new View.OnLongClickListener() {
 
@@ -106,6 +101,7 @@ import java.util.ArrayList;
         });
         holder.tvTitle.setText(name);
         holder.tvDesc.setText(desk);
+        holder.tvTanggal.setText(tgl);
     }
 
 

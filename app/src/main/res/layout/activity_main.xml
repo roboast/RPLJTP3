@@ -21,6 +21,7 @@
             android:id="@+id/btnLihat"
             android:layout_width="match_parent"
             android:layout_height="68dp"
+
             android:text="Kumpulan Artikel" />
 
         <Button
@@ -29,11 +30,13 @@
             android:layout_height="61dp"
             android:text="Tambah Wahana" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_lihatWahana"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text="Kumpulan Wahana" />
+            android:background="#00000"
+            android:src="@drawable/wahana" />
+
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
