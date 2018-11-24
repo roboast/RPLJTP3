@@ -122,7 +122,4 @@ class AdapterWahanaRecyclerView extends RecyclerView.Adapter<AdapterWahanaRecycl
 
 
 
-
-
-
 }

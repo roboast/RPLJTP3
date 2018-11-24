@@ -29,6 +29,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -61,7 +62,7 @@ public class activity_wahana extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wahana);
 
-
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
         db = FirebaseDatabase.getInstance().getReference("wahana");
@@ -73,7 +74,7 @@ public class activity_wahana extends AppCompatActivity {
         etDeskripsi = (EditText) findViewById(R.id.textDesc);
         btnwahana = (Button) findViewById(R.id.btnSubmit);
         btn = (Button) findViewById(R.id.btn_choose);
-        btnU = (Button) findViewById(R.id.btn_upload);
+
         final Wahana wahana = (Wahana) getIntent().getSerializableExtra("data");
 
         imageView = findViewById(R.id.imageView);
@@ -84,18 +85,13 @@ public class activity_wahana extends AppCompatActivity {
                 chooseImage();
             }
         });
-        /**btnU.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                uploadFile();
 
-            }
-        });
 
-*/
+
         if (wahana != null){
             etNama.setText(wahana.getNama());
             etDeskripsi.setText(wahana.getDeskripsi());
+            Picasso.with(getApplicationContext()).load(wahana.getFoto()).into(imageView);
 
 
             btnwahana.setOnClickListener(new View.OnClickListener() {

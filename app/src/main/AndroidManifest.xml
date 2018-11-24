@@ -31,7 +31,11 @@
         <activity android:name=".Home" />
         <activity android:name=".activity_wahana" />
         <activity android:name=".activity_listwahana" />
-        <activity android:name=".home_guest"></activity>
+        <activity android:name=".activity_home_guest" />
+        <activity android:name=".activity_wahana_guest" />
+        <activity android:name=".activity_detail_wahana" />
+        <activity android:name=".activity_berita_guest" />
+        <activity android:name=".activity_detail_berita"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Home"
+
+        android:icon="@drawable/house"
+        />
+    <item
+        android:title="Maps"
+        android:icon="@drawable/ic_home_black_24dp"
+        />
+    <item
+        android:title="Wahana"
+        android:icon="@drawable/ic_home_black_24dp"
+        />
+    <item
+        android:title="Berita"
+        android:icon="@drawable/ic_home_black_24dp"
+        />
+    <item
+        android:title="Etc"
+        android:icon="@drawable/ic_home_black_24dp"
+        />
+
+</menu>
