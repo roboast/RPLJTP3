@@ -8,12 +8,14 @@ public class Post implements Serializable{
     private String deskripsi;
     private String tanggal;
     private String id;
+    private String foto;
 
 
-    public Post(String judul, String deskripsi, String tanggal){
+    public Post(String judul, String deskripsi, String tanggal, String foto){
         this.judul = judul;
         this.deskripsi = deskripsi;
         this.tanggal = tanggal;
+        this.foto = foto;
     }
     public Post(){
 
@@ -54,5 +56,13 @@ public class Post implements Serializable{
 
     public String getTanggal() {
         return tanggal;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

@@ -35,7 +35,8 @@
         <activity android:name=".activity_wahana_guest" />
         <activity android:name=".activity_detail_wahana" />
         <activity android:name=".activity_berita_guest" />
-        <activity android:name=".activity_detail_berita"></activity>
+        <activity android:name=".activity_detail_berita" />
+        <activity android:name=".activity_peta_wahana"></activity>
     </application>
 
 </manifest>

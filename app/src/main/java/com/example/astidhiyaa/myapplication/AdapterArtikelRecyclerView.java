@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,6 +39,7 @@ import java.util.ArrayList;
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvTitle, tvDesc, tvTanggal;
+        ImageView ivFoto;
 
 
         ViewHolder(View v) {
@@ -43,6 +47,7 @@ import java.util.ArrayList;
             tvTitle = (TextView) v.findViewById(R.id.tvJudul);
             tvDesc = (TextView) v.findViewById(R.id.tvDeskripsi);
             tvTanggal = (TextView) v.findViewById(R.id.tvTanggalArtikel);
+            ivFoto = (ImageView) v.findViewById(R.id.img_view);
 
         }
     }
@@ -62,6 +67,7 @@ import java.util.ArrayList;
         final String name = dftrArtikel.get(position).getJudul();
         final String desk = dftrArtikel.get(position).getDeskripsi();
         final String tgl = dftrArtikel.get(position).getTanggal();
+        final String foto = dftrArtikel.get(position).getFoto();
 
         holder.tvTitle.setOnLongClickListener(new View.OnLongClickListener() {
 
@@ -102,6 +108,7 @@ import java.util.ArrayList;
         holder.tvTitle.setText(name);
         holder.tvDesc.setText(desk);
         holder.tvTanggal.setText(tgl);
+        Picasso.with(context).load(foto).into(holder.ivFoto);
     }
 
 

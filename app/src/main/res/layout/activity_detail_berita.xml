@@ -6,4 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".activity_detail_berita">
 
+    <ImageView
+        android:id="@+id/iv_berita"
+        android:layout_width="358dp"
+        android:layout_height="180dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginStart="1dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/overlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jtp_3" />
+
+    <ImageView
+        android:id="@+id/overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="150dp"
+        android:background="@color/common_google_signin_btn_text_light_focused"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tv_deskripsi_berita"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/actionBarItemBackground" />
+
+    <TextView
+        android:id="@+id/tv_tanggal_berita"
+        android:layout_width="356dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="148dp"
+        android:text="Tanggal"
+        android:textColor="@android:color/background_light"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_judul_berita"
+        android:layout_width="333dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="372dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Judul Berita"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_tanggal_berita" />
+
+    <TextView
+        android:id="@+id/tv_deskripsi_berita"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="293dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/overlay" />
+
 </android.support.constraint.ConstraintLayout>

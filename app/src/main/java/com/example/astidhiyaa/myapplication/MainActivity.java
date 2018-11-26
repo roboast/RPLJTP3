@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView tmbh_artikel, tmbh_wahana;
     private ImageView list_artikel, list_wahana;
 
-    private ImageView nyoba,coba,lol;
+    private ImageView nyoba,coba,lol,peta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
         nyoba = findViewById(R.id.btn_tambah_lost);
         coba = findViewById(R.id.btn_lost);
         lol = findViewById(R.id.btn_cek);
+        peta =findViewById(R.id.btn_peta);
+
+        peta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent nyoba = new Intent(MainActivity.this,activity_peta_wahana.class);
+                startActivity(nyoba);
+            }
+        });
 
         coba.setOnClickListener(new View.OnClickListener() {
             @Override

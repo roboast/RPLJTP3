@@ -1,5 +1,6 @@
 package com.example.astidhiyaa.myapplication;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,12 +8,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,8 @@ public class activity_listArtikel extends AppCompatActivity  {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Post> dftrArtikel;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
 
     public activity_listArtikel(){
@@ -38,6 +44,8 @@ public class activity_listArtikel extends AppCompatActivity  {
         layoutManager = new LinearLayoutManager(this);
         rvView.setLayoutManager(layoutManager);
         database = FirebaseDatabase.getInstance().getReference();
+        database = FirebaseDatabase.getInstance().getReference();
+        storage = FirebaseStorage.getInstance();
 
 
         tampilData();
@@ -47,7 +55,7 @@ public class activity_listArtikel extends AppCompatActivity  {
 
     public void tampilData(){
 
-        database.child("artikel").child("id").addValueEventListener(new ValueEventListener() {
+        database.child("artikel").child("id").orderByChild("tanggal").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -77,12 +85,34 @@ public class activity_listArtikel extends AppCompatActivity  {
 
 
 
-    public void hapusData(Post post, final int position) {
-        database.child("artikel").child("id").child(post.getId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+    public void hapusData(final Post post, final int position) {
+        storageReference = storage.getReferenceFromUrl(post.getFoto());
+        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(activity_listArtikel.this,"Gambar Berhasil terhapus",Toast.LENGTH_SHORT);
+                database.child("artikel").child("id").child(post.getId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(activity_listArtikel.this,"Berhasil terhapus",Toast.LENGTH_SHORT);
+                    }
+                });
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(activity_listArtikel.this,"Gagal terhapus",Toast.LENGTH_SHORT);
+                    }
+                });
+    }
+        /**database.child("artikel").child("id").child(post.getId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(activity_listArtikel.this,"Berhasil terhapus",Toast.LENGTH_SHORT);
             }
         });
+         */
+
     }
-}
+

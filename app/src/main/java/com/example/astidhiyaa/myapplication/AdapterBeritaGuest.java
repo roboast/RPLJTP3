@@ -66,17 +66,22 @@ class AdapterBeritaGuest extends RecyclerView.Adapter<AdapterBeritaGuest.ViewHol
 
         final  String judul = dftrBerita.get(position).getJudul();
         final String tanggal = dftrBerita.get(position).getTanggal();
+        final String foto = dftrBerita.get(position).getFoto();
 
         holder.tv_judul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //buka detail berita
+                Intent intent = new Intent(context, activity_detail_berita.class);
+                intent.putExtra("data",dftrBerita.get(position));
+                ((Activity)context).startActivity(intent);
             }
         });
 
 
         holder.tv_judul.setText(judul);
         holder.tv_tanggal.setText(tanggal);
+        Picasso.with(context).load(foto).into(holder.iv_foto);
 
     }
 

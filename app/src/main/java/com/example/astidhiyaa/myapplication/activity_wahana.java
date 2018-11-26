@@ -99,6 +99,7 @@ public class activity_wahana extends AppCompatActivity {
                 public void onClick(View view) {
                     wahana.setNama(etNama.getText().toString());
                     wahana.setDeskripsi(etDeskripsi.getText().toString());
+
                     updateWahana(wahana);
                 }
             });
@@ -122,7 +123,7 @@ public class activity_wahana extends AppCompatActivity {
             progressDialog.setTitle("Uploading..");
             progressDialog.show();
 
-            final StorageReference ref = storageReference.child("images/"+UUID.randomUUID().toString());
+            final StorageReference ref = storageReference.child("wahana/"+UUID.randomUUID().toString());
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -168,11 +169,31 @@ public class activity_wahana extends AppCompatActivity {
         }
     }
 
-    public void updateWahana(Wahana wahana){
-        db.child("id").child(wahana.getId()).setValue(wahana).addOnSuccessListener(new OnSuccessListener<Void>() {
+    public void updateWahana(final Wahana wahana){
+        storageReference = storage.getReferenceFromUrl(wahana.getFoto());
+        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Snackbar.make(findViewById(R.id.btnSubmit), "Data berhasil diupdate", Snackbar.LENGTH_LONG).show();
+                StorageReference storageRefo = storage.getReferenceFromUrl("gs://blog-4f92e.appspot.com");
+                final StorageReference refo = storageRefo.child("wahana/"+UUID.randomUUID().toString());
+                refo.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        refo.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Uri downloadUrl = uri;
+                                Wahana whn = new Wahana(wahana.getNama(),wahana.getDeskripsi(),wahana.getTanggal(),downloadUrl.toString());
+                                db.child("id").child(wahana.getId()).setValue(whn).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Snackbar.make(findViewById(R.id.btnSubmit), "Data berhasil diupdate", Snackbar.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
             }
         });
     }

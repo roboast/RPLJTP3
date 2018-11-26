@@ -48,7 +48,7 @@ public class activity_listwahana extends AppCompatActivity {
 
     public void tampilData(){
 
-        database.child("wahana").child("id").addValueEventListener(new ValueEventListener() {
+        database.child("wahana").child("id").orderByChild("tanggal").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 

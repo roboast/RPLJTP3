@@ -5,14 +5,16 @@
     android:layout_height="170dp"
     android:orientation="horizontal">
 
-    <android.support.v7.widget.CardView
+    <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_columnWeight="1"
         android:layout_margin="12dp"
         android:layout_rowWeight="1"
         app:cardCornerRadius="12dp"
-        app:cardElevation="6dp">
+        app:cardElevation="6dp"
+        app:strokeColor="@color/common_google_signin_btn_text_light_focused"
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,5 +41,5 @@
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </android.support.design.card.MaterialCardView>
 </LinearLayout>
