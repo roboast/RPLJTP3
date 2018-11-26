@@ -2,6 +2,7 @@ package com.example.astidhiyaa.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -52,6 +53,7 @@ public class activity_berita_guest extends AppCompatActivity {
                 }
 
                 adapter = new AdapterBeritaGuest(dftrArtikel, activity_berita_guest.this);
+               
                 rvView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
 
