@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,11 +32,13 @@
         <activity android:name=".activity_wahana" />
         <activity android:name=".activity_listwahana" />
         <activity android:name=".activity_home_guest" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".activity_wahana_guest" />
         <activity android:name=".activity_detail_wahana" />
         <activity android:name=".activity_berita_guest" />
         <activity android:name=".activity_detail_berita" />
-        <activity android:name=".activity_peta_wahana"></activity>
+        <activity android:name=".activity_peta_wahana" />
+        <activity android:name=".activity_login"></activity>
     </application>
 
 </manifest>
