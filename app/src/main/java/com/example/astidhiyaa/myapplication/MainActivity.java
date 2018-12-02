@@ -10,8 +10,9 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     private ImageView tmbh_artikel, tmbh_wahana;
     private ImageView list_artikel, list_wahana;
+    private Button btn_logout;
 
-    private ImageView nyoba,coba,lol,peta;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,42 +23,17 @@ public class MainActivity extends AppCompatActivity {
         tmbh_wahana = findViewById(R.id.btn_tambah_wahana);
         list_artikel = findViewById(R.id.btn_artikel);
         list_wahana = findViewById(R.id.btn_wahana);
+        btn_logout = findViewById(R.id.btn_keluar);
 
-        nyoba = findViewById(R.id.btn_tambah_lost);
-        coba = findViewById(R.id.btn_lost);
-        lol = findViewById(R.id.btn_cek);
-        peta =findViewById(R.id.btn_peta);
 
-        peta.setOnClickListener(new View.OnClickListener() {
+        btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent nyoba = new Intent(MainActivity.this,activity_peta_wahana.class);
-                startActivity(nyoba);
+                Intent keluar = new Intent(MainActivity.this,Main2Activity.class);
+                startActivity(keluar);
             }
         });
 
-        coba.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent nyoba = new Intent(MainActivity.this,activity_wahana_guest.class);
-                startActivity(nyoba);
-            }
-        });
-
-        nyoba.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent nyoba = new Intent(MainActivity.this,activity_home_guest.class);
-                startActivity(nyoba);
-            }
-        });
-        lol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent ya = new Intent(MainActivity.this,activity_berita_guest.class);
-                startActivity(ya);
-            }
-        });
 
         tmbh_artikel.setOnClickListener(new View.OnClickListener() {
             @Override

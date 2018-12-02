@@ -154,19 +154,6 @@ public class activity_post extends AppCompatActivity {
                     });
 
         }
-        /**
-        String artikel = db.push().getKey();
-        String date_now = DateFormat.getDateTimeInstance().format(new Date());
-        Post post = new Post(etJudul.getText().toString(), etDeskripsi.getText().toString(),date_now);
-        db.child("id").push().setValue(post).addOnSuccessListener(this, new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                etJudul.setText("");
-                etDeskripsi.setText("");
-                Snackbar.make(findViewById(R.id.btnSubmit), "Data berhasil ditambahkan", Snackbar.LENGTH_LONG).show();
-            }
-        });
-         */
     }
 
     public void updateArtikel(final Post post){
@@ -198,15 +185,6 @@ public class activity_post extends AppCompatActivity {
         });
 
 
-
-        /**
-        db.child("id").child(post.getId()).setValue(post).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Snackbar.make(findViewById(R.id.btnSubmit), "Data berhasil diupdate", Snackbar.LENGTH_LONG).show();
-            }
-        });
-         */
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

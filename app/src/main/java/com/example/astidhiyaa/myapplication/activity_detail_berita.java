@@ -2,13 +2,14 @@ package com.example.astidhiyaa.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 public class activity_detail_berita extends AppCompatActivity {
-    private ImageView iv_foto;
+    private ImageView iv_foto, exit;
     private TextView judul, tgl, deskripsi;
 
     @Override
@@ -20,6 +21,14 @@ public class activity_detail_berita extends AppCompatActivity {
         judul = findViewById(R.id.tv_judul_berita);
         tgl = findViewById(R.id.tv_tanggal_berita);
         deskripsi = findViewById(R.id.tv_deskripsi_berita);
+        exit = findViewById(R.id.back_detail_berita);
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         final Post post = (Post) getIntent().getSerializableExtra("data");
 

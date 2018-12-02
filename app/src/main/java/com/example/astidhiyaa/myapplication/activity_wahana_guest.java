@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +26,7 @@ public class activity_wahana_guest extends AppCompatActivity {
     private ArrayList<Wahana> dftrWahana;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    private ImageView exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,15 @@ public class activity_wahana_guest extends AppCompatActivity {
         rvView.setLayoutManager(new GridLayoutManager(this,jlh_kolom));
         database = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance();
+        exit = findViewById(R.id.back_wahana);
         tampilData();
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
     public void tampilData(){

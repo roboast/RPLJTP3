@@ -20,7 +20,7 @@ public class Main2Activity extends AppCompatActivity {
         guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent nyoba = new Intent(Main2Activity.this,MainActivity.class);
+                Intent nyoba = new Intent(Main2Activity.this,activity_home_guest.class);
                 startActivity(nyoba);
             }
         });

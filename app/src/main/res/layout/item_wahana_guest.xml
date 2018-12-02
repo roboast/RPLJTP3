@@ -13,8 +13,7 @@
         android:layout_rowWeight="1"
         app:cardCornerRadius="12dp"
         app:cardElevation="6dp"
-        app:strokeColor="@color/common_google_signin_btn_text_light_focused"
-        app:strokeWidth="1dp">
+    >
 
         <LinearLayout
             android:layout_width="match_parent"

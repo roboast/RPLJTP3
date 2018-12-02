@@ -39,7 +39,6 @@ public class activity_login extends AppCompatActivity {
             }
         });
 
-
     }
     public void signIn(final String nama, final String pass){
     db.addListenerForSingleValueEvent(new ValueEventListener() {

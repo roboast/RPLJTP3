@@ -15,6 +15,12 @@
         android:orientation="vertical">
 
 
+        <ImageView
+            android:id="@+id/back_detail_wahana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="320dp"
+            app:srcCompat="@drawable/exit" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jatim Park 3"
+                android:text="Wahana Jatim Park 3"
                 android:textColor="#ffffff"
                 android:textSize="22sp" />
         </RelativeLayout>
