@@ -3,7 +3,7 @@ package com.example.astidhiyaa.myapplication;
 
 import java.io.Serializable;
 
-public class Post implements Serializable{
+public class Berita implements Serializable{
     private String judul;
     private String deskripsi;
     private String tanggal;
@@ -11,13 +11,13 @@ public class Post implements Serializable{
     private String foto;
 
 
-    public Post(String judul, String deskripsi, String tanggal, String foto){
+    public Berita(String judul, String deskripsi, String tanggal, String foto){
         this.judul = judul;
         this.deskripsi = deskripsi;
         this.tanggal = tanggal;
         this.foto = foto;
     }
-    public Post(){
+    public Berita(){
 
     }
     @Override

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Home extends AppCompatActivity {
     private DatabaseReference database;
     private TextView tvJudul, tvDesk;
-    Post post;
+    Berita post;
     ArrayList dftrArtikel;
 
 
@@ -45,8 +45,8 @@ public class Home extends AppCompatActivity {
              //DataSnapshot noteDataSnapshot = (DataSnapshot) dataSnapshot.getChildren();
 
 
-                 tvJudul.setText(dataSnapshot.getValue(Post.class).getJudul());
-                 tvDesk.setText(dataSnapshot.getValue(Post.class).getDeskripsi());
+                 tvJudul.setText(dataSnapshot.getValue(Berita.class).getJudul());
+                 tvDesk.setText(dataSnapshot.getValue(Berita.class).getDeskripsi());
 
 
                  //dftrArtikel.add(post);

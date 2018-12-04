@@ -30,7 +30,7 @@ public class activity_detail_berita extends AppCompatActivity {
             }
         });
 
-        final Post post = (Post) getIntent().getSerializableExtra("data");
+        final Berita post = (Berita) getIntent().getSerializableExtra("data");
 
         judul.setText(post.getJudul());
         deskripsi.setText(post.getDeskripsi());

@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/tvDeskripsiWahana"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="134dp"
         android:layout_margin="5dp"
         android:text="Post Description"
         android:textColor="@color/cardview_dark_background" />

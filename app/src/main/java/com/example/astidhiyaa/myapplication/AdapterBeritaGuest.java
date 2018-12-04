@@ -19,14 +19,14 @@ import java.util.ArrayList;
 
 class AdapterBeritaGuest extends RecyclerView.Adapter<AdapterBeritaGuest.ViewHolder> {
 
-    private ArrayList<Post> dftrBerita;
+    private ArrayList<Berita> dftrBerita;
     private Context context;
     activity_berita_guest lW;
 
 
 
 
-    public AdapterBeritaGuest(ArrayList<Post> post, Context context) {
+    public AdapterBeritaGuest(ArrayList<Berita> post, Context context) {
 
         dftrBerita = post;
         this.context = context;
@@ -71,7 +71,6 @@ class AdapterBeritaGuest extends RecyclerView.Adapter<AdapterBeritaGuest.ViewHol
         holder.tv_judul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //buka detail berita
                 Intent intent = new Intent(context, activity_detail_berita.class);
                 intent.putExtra("data",dftrBerita.get(position));
                 ((Activity)context).startActivity(intent);

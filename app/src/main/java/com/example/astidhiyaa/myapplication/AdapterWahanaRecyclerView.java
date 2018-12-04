@@ -41,7 +41,6 @@ class AdapterWahanaRecyclerView extends RecyclerView.Adapter<AdapterWahanaRecycl
         TextView tvTitle, tvDesc, tvTanggal;
         ImageView ivFoto;
 
-
         ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tvNamaWahana);

@@ -43,45 +43,25 @@
         app:srcCompat="?android:attr/actionBarItemBackground" />
 
     <TextView
-        android:id="@+id/tv_tanggal_berita"
-        android:layout_width="356dp"
-        android:layout_height="23dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="148dp"
-        android:text="Tanggal"
-        android:textColor="@android:color/background_light"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tv_judul_berita"
         android:layout_width="333dp"
         android:layout_height="28dp"
-        android:layout_marginBottom="372dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginBottom="384dp"
         android:text="Judul Berita"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tv_tanggal_berita" />
+        tools:layout_editor_absoluteX="26dp" />
 
     <TextView
         android:id="@+id/tv_deskripsi_berita"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="293dp"
+        android:layout_width="357dp"
+        android:layout_height="91dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
 
         android:layout_marginTop="20dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/overlay" />
 

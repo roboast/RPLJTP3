@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.content.Intent;
 
-import com.example.astidhiyaa.myapplication.Post;
+import com.example.astidhiyaa.myapplication.Berita;
 
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -67,7 +67,7 @@ public class activity_post extends AppCompatActivity {
         etDeskripsi = (EditText) findViewById(R.id.textDesc);
         btnPost = (Button) findViewById(R.id.btnSubmit);
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
-        final Post post = (Post) getIntent().getSerializableExtra("data");
+        final Berita post = (Berita) getIntent().getSerializableExtra("data");
 
         imageView = findViewById(R.id.iv_artikel);
         btnSelect = findViewById(R.id.btn_pilih);
@@ -123,7 +123,7 @@ public class activity_post extends AppCompatActivity {
 
                                     String artikel = db.push().getKey();
                                     String date_now = DateFormat.getDateTimeInstance().format(new Date());
-                                    Post post = new Post(etJudul.getText().toString(), etDeskripsi.getText().toString(),date_now,downloadUrl.toString());
+                                    Berita post = new Berita(etJudul.getText().toString(), etDeskripsi.getText().toString(),date_now,downloadUrl.toString());
 
                                     db.child("id").push().setValue(post).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
@@ -156,7 +156,7 @@ public class activity_post extends AppCompatActivity {
         }
     }
 
-    public void updateArtikel(final Post post){
+    public void updateArtikel(final Berita post){
         storageReference = storage.getReferenceFromUrl(post.getFoto());
         storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -170,7 +170,7 @@ public class activity_post extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 Uri downloadUrl = uri;
-                                Post pst = new Post(post.getJudul(),post.getDeskripsi(),post.getTanggal(),downloadUrl.toString());
+                                Berita pst = new Berita(post.getJudul(),post.getDeskripsi(),post.getTanggal(),downloadUrl.toString());
                                 db.child("id").child(post.getId()).setValue(pst).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

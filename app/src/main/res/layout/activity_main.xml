@@ -68,13 +68,14 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/signing" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tambah Artikel"
                     android:layout_marginTop="12dp"
+                    android:text="Tambah Berita"
                     android:textColor="#6f6f6f"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
 
             </LinearLayout>
@@ -102,13 +103,14 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/text_lines" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="List Artikel"
                     android:layout_marginTop="12dp"
+                    android:text="List Berita"
                     android:textColor="#6f6f6f"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
 
             </LinearLayout>

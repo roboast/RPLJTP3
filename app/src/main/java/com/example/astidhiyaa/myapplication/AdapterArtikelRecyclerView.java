@@ -19,14 +19,14 @@ import java.util.ArrayList;
 
  class AdapterArtikelRecyclerView extends RecyclerView.Adapter<AdapterArtikelRecyclerView.ViewHolder> {
 
-    private ArrayList<Post> dftrArtikel;
+    private ArrayList<Berita> dftrArtikel;
     private Context context;
     activity_listArtikel lA;
 
 
 
 
-    public AdapterArtikelRecyclerView(ArrayList<Post> artikel, Context context) {
+    public AdapterArtikelRecyclerView(ArrayList<Berita> artikel, Context context) {
 
         dftrArtikel = artikel;
         this.context = context;

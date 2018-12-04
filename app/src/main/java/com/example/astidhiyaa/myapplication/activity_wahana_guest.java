@@ -39,6 +39,7 @@ public class activity_wahana_guest extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance();
         exit = findViewById(R.id.back_wahana);
+
         tampilData();
 
         exit.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +51,6 @@ public class activity_wahana_guest extends AppCompatActivity {
 
     }
     public void tampilData(){
-
         database.child("wahana").child("id").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -60,7 +60,6 @@ public class activity_wahana_guest extends AppCompatActivity {
 
                     Wahana wahana = noteDataSnapshot.getValue(Wahana.class);
                     wahana.setId(noteDataSnapshot.getKey());
-
 
                     dftrWahana.add(wahana);
                 }

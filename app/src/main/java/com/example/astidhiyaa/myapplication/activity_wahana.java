@@ -53,10 +53,6 @@ public class activity_wahana extends AppCompatActivity {
     private Uri filePath;
     private ImageView imageView;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +87,7 @@ public class activity_wahana extends AppCompatActivity {
         if (wahana != null){
             etNama.setText(wahana.getNama());
             etDeskripsi.setText(wahana.getDeskripsi());
-            Picasso.with(getApplicationContext()).load(wahana.getFoto()).into(imageView);
+                Picasso.with(getApplicationContext()).load(wahana.getFoto()).into(imageView);
 
 
             btnwahana.setOnClickListener(new View.OnClickListener() {

@@ -25,7 +25,7 @@ public class activity_listArtikel extends AppCompatActivity  {
     private RecyclerView rvView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<Post> dftrArtikel;
+    private ArrayList<Berita> dftrArtikel;
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
@@ -62,7 +62,7 @@ public class activity_listArtikel extends AppCompatActivity  {
                 dftrArtikel = new ArrayList<>();
                 for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
 
-                    Post post = noteDataSnapshot.getValue(Post.class);
+                    Berita post = noteDataSnapshot.getValue(Berita.class);
                     post.setId(noteDataSnapshot.getKey());
 
 
@@ -85,7 +85,7 @@ public class activity_listArtikel extends AppCompatActivity  {
 
 
 
-    public void hapusData(final Post post, final int position) {
+    public void hapusData(final Berita post, final int position) {
         storageReference = storage.getReferenceFromUrl(post.getFoto());
         storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -106,13 +106,7 @@ public class activity_listArtikel extends AppCompatActivity  {
                     }
                 });
     }
-        /**database.child("artikel").child("id").child(post.getId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(activity_listArtikel.this,"Berhasil terhapus",Toast.LENGTH_SHORT);
-            }
-        });
-         */
+
 
     }
 

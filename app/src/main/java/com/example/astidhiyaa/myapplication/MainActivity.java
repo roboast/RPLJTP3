@@ -12,8 +12,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView list_artikel, list_wahana;
     private Button btn_logout;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -26,7 +26,7 @@ public class activity_berita_guest extends AppCompatActivity {
     private RecyclerView rvView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<Post> dftrArtikel;
+    private ArrayList<Berita> dftrArtikel;
     private BottomNavigationView bottomNavigationView;
     private ImageView exit;
 
@@ -35,7 +35,6 @@ public class activity_berita_guest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_berita_guest);
 
-        //bottomNavigationView = findViewById(R.id.nav_bottom_berita);
         rvView = (RecyclerView) findViewById(R.id.rv_berita_guest);
         rvView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -66,7 +65,7 @@ public class activity_berita_guest extends AppCompatActivity {
                 dftrArtikel = new ArrayList<>();
                 for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
 
-                    Post post = noteDataSnapshot.getValue(Post.class);
+                    Berita post = noteDataSnapshot.getValue(Berita.class);
                     post.setId(noteDataSnapshot.getKey());
 
 
